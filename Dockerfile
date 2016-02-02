@@ -16,7 +16,8 @@ CMD ["/sbin/my_init"]
 ###############################################
 ##                         INTALL ENVIORMENT AND SOFTWARE                           ##
 ###############################################
-COPY install.sh /tmp/
+COPY install.sh /tmp/ 
+COPY zap2xml.pl /zap2xml/
 RUN chmod +x /tmp/install.sh && sleep 1 && /tmp/install.sh && rm /tmp/install.sh
 
 

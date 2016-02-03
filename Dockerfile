@@ -9,16 +9,18 @@ CMD ["/sbin/my_init"]
 # source dir
 #RUN mkdir -p /zap2xml
 
-# get zap2xml.pl 
-COPY ./src/zap2xml.pl /zap2xml/
-
 # Fix permissions of user nobody to suit unraid
 RUN usermod -u 99 nobody && \
 usermod -g 100 nobody  && \
 
+# get zap2xml.pl 
+COPY /src /zap2xml/
+
 # install dependencies
-apt-get update -qq && \
-apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy && \
+RUN apt-get update -qq && \
+apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl \
+libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert \
+libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy && \
 
 #clean up
 apt-get clean && \

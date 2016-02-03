@@ -1,28 +1,37 @@
-# Builds a docker image for zap2xml
-FROM phusion/baseimage:0.9.18
-MAINTAINER johnodon
+FROM phusion/baseimage:0.9.16
 
-
-###############################################
-##                                 ENVIRONMENTAL CONFIG                                           ##
-###############################################
 # Set correct environment variables
-ENV DEBIAN_FRONTEND noninteractive
-ENV HOME="/root" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
+ENV DEBIAN_FRONTEND=noninteractive HOME="/root" TERM=xterm
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-###############################################
-##                         INTALL ENVIORMENT AND SOFTWARE                           ##
-###############################################
-COPY install.sh /tmp/ 
-COPY zap2xml.pl /zap2xml/
-RUN chmod +x /tmp/install.sh && sleep 1 && /tmp/install.sh && rm /tmp/install.sh
+# add local files
+ADD src/ /root/ 
 
+# source dir
+mkdir -p /zap2xml
 
-###############################################
-##                                        PORTS AND VOLUMES                                            ##
-###############################################
+# set volume
+VOLUME /images
+VOLUME /zap2xml
 
-VOLUME /config
+# Fix permissions of user nobody to suit unraid
+RUN usermod -u 99 nobody && \
+usermod -g 100 nobody  && \
+
+# install dependencies
+apt-get update -qq && \
+apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy && \
+
+# get zap2xml.pl
+cd /zap2xml
+wget http://fossick.tk/?h=1y9nlgq
+
+#clean up
+apt-get clean && \
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+/usr/share/man /usr/share/groff /usr/share/info \
+/usr/share/lintian /usr/share/linda /var/cache/man && \
+(( find /usr/share/doc -depth -type f ! -name copyright|xargs rm || true )) && \
+(( find /usr/share/doc -empty|xargs rmdir || true ))

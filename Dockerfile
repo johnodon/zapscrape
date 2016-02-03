@@ -19,4 +19,4 @@ RUN mkdir /zap2xml
 ADD http://fossick.tk/?h=12b49re /zap2xml/zap2xml.pl
 
 # Database directory for config
-VOLUME /data
+VOLUME /data /config

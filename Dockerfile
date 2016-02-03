@@ -7,10 +7,10 @@ ENV DEBIAN_FRONTEND=noninteractive HOME="/root" TERM=xterm
 CMD ["/sbin/my_init"]
 
 # source dir
-RUN mkdir -p /zap2xml
+#RUN mkdir -p /zap2xml
 
 # get zap2xml.pl 
-ADD ./src /zap2xml/
+COPY ./src/zap2xml.pl /zap2xml/
 
 # Fix permissions of user nobody to suit unraid
 RUN usermod -u 99 nobody && \

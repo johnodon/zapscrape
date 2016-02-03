@@ -10,7 +10,7 @@ CMD ["/sbin/my_init"]
 RUN mkdir -p /zap2xml
 
 # get zap2xml.pl 
-ADD ./src/zap2xml.pl /zap2xml/
+ADD https://github.com/johnodon/zap2xml/blob/master/src/zap2xml.pl /zap2xml/
 
 # Fix permissions of user nobody to suit unraid
 RUN usermod -u 99 nobody && \

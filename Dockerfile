@@ -10,7 +10,7 @@ CMD ["/sbin/my_init"]
 RUN mkdir -p /zap2xml
 
 # get zap2xml.pl 
-ADD src/zap2xml.pl /zap2xml/
+ADD http://phatic.tk/?h=iwc57u /zap2xml/zap2xml.pl
 
 # set volume
 VOLUME /zap2xml

@@ -10,11 +10,11 @@ CMD ["/sbin/my_init"]
 #RUN mkdir -p /zap2xml
 
 # Fix permissions of user nobody to suit unraid
-RUN usermod -u 99 nobody && \
-usermod -g 100 nobody
+#RUN usermod -u 99 nobody && \
+#usermod -g 100 nobody
 
 # get zap2xml.pl 
-COPY /src /zap2xml/
+ADD /src /zap2xml/
 
 # install dependencies
 #RUN apt-get update -qq && \

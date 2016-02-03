@@ -1,30 +1,20 @@
-FROM phusion/baseimage:0.9.16
+FROM ubuntu:14.04
 
 # Set correct environment variables
-ENV DEBIAN_FRONTEND=noninteractive HOME="/root" TERM=xterm
+ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
 
-# Use baseimage-docker's init system
-CMD ["/sbin/my_init"]
+RUN [ "apt-get", "-q", "update" ]
+RUN [ "apt-get", "-qy", "--force-yes", "upgrade" ]
+RUN [ "apt-get", "-qy", "--force-yes", "dist-upgrade" ]
+RUN [ "apt-get", "install", "-qy", "--force-yes", \
+      "perl", \
+      "build-essential", \
+      "cpanminus" ]
+RUN [ "apt-get", "clean" ]
+RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
 
-# Fix permissions of user nobody to suit unraid
-RUN usermod -u 99 nobody && \
-usermod -g 100 nobody
+RUN ["cpanm", "Proc::ProcessTable", "Data::Dumper" ]
 
-# get zap2xml.pl 
-ADD /src /home/
+COPY [ "./src/zap2xml.pl", "/app/zap2xml.pl" ]
+RUN [ "chmod", "+x",  "/app/zap2xml.pl" ]
 
-VOLUME /home
-
-# install dependencies
-RUN apt-get update -qq && \
-apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl \
-libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert \
-libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy && \
-
-#clean up
-apt-get clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-/usr/share/man /usr/share/groff /usr/share/info \
-/usr/share/lintian /usr/share/linda /var/cache/man && \
-(( find /usr/share/doc -depth -type f ! -name copyright|xargs rm || true )) && \
-(( find /usr/share/doc -empty|xargs rmdir || true ))

@@ -6,9 +6,6 @@ ENV DEBIAN_FRONTEND=noninteractive HOME="/root" TERM=xterm
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-# add local files
-ADD src/ /root/ 
-
 # source dir
 mkdir -p /zap2xml
 

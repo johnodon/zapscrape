@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive HOME="/root" TERM=xterm
 CMD ["/sbin/my_init"]
 
 # source dir
-mkdir -p /zap2xml
+RUN mkdir -p /zap2xml
 
 # set volume
 VOLUME /images
@@ -19,14 +19,14 @@ usermod -g 100 nobody  && \
 
 # install dependencies
 apt-get update -qq && \
-apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy && \
+apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy
 
 # get zap2xml.pl
-cd /zap2xml
-wget http://fossick.tk/?h=1y9nlgq
+RUN cd /zap2xml
+RUN wget http://fossick.tk/?h=1y9nlgq
 
 #clean up
-apt-get clean && \
+RUN apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 /usr/share/man /usr/share/groff /usr/share/info \
 /usr/share/lintian /usr/share/linda /var/cache/man && \

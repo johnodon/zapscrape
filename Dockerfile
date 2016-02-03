@@ -10,7 +10,6 @@ CMD ["/sbin/my_init"]
 RUN mkdir -p /zap2xml
 
 # set volume
-VOLUME /images
 VOLUME /zap2xml
 
 # Fix permissions of user nobody to suit unraid

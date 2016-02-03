@@ -10,7 +10,7 @@ CMD ["/sbin/my_init"]
 RUN mkdir -p /zap2xml
 
 # get zap2xml.pl 
-ADD src/ /tmp/
+ADD src/ /zap2xml/
 
 # set volume
 VOLUME /zap2xml

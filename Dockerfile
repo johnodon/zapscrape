@@ -9,6 +9,9 @@ CMD ["/sbin/my_init"]
 # source dir
 RUN mkdir -p /zap2xml
 
+# get zap2xml.pl 
+ADD src/ /zap2xml/
+
 # set volume
 VOLUME /zap2xml
 
@@ -19,9 +22,6 @@ usermod -g 100 nobody  && \
 # install dependencies
 apt-get update -qq && \
 apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy
-
-# get zap2xml.pl 
-ADD src/ /zap2xml/
 
 #clean up
 RUN apt-get clean && \

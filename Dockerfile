@@ -22,8 +22,7 @@ apt-get update -qq && \
 apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl libsocket6-perl ssl-cert libio-socket-ip-perl libjson-any-perl sasl2-bin libsasl2-modules -qy
 
 # get zap2xml.pl
-RUN cd /zap2xml
-RUN wget http://fossick.tk/?h=1y9nlgq
+COPY zap2xml.pl /zap2xml/
 
 #clean up
 RUN apt-get clean && \

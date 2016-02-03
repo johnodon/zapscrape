@@ -14,7 +14,7 @@ CMD ["/sbin/my_init"]
 #usermod -g 100 nobody
 
 # get zap2xml.pl 
-ADD /src /zap2xml/
+ADD /src /home/
 
 # install dependencies
 #RUN apt-get update -qq && \

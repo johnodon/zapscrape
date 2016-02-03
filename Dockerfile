@@ -11,7 +11,7 @@ CMD ["/sbin/my_init"]
 
 # Fix permissions of user nobody to suit unraid
 RUN usermod -u 99 nobody && \
-usermod -g 100 nobody  && \
+usermod -g 100 nobody
 
 # get zap2xml.pl 
 COPY /src /zap2xml/

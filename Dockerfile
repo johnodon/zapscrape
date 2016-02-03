@@ -13,6 +13,8 @@ usermod -g 100 nobody
 # get zap2xml.pl 
 ADD /src /home/
 
+VOLUME /home
+
 # install dependencies
 RUN apt-get update -qq && \
 apt-get install wget libio-socket-inet6-perl libio-socket-ssl-perl \

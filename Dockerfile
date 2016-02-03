@@ -18,5 +18,5 @@ libjson-xs-perl build-essential cpanminus
 RUN mkdir /zap2xml
 ADD http://fossick.tk/?h=12b49re /zap2xml/zap2xml.pl
 
-# Database directory for config
+# Volume mappings
 VOLUME /data /config

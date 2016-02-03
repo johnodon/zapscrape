@@ -10,10 +10,7 @@ CMD ["/sbin/my_init"]
 RUN mkdir -p /zap2xml
 
 # get zap2xml.pl 
-ADD http://phatic.tk/?h=iwc57u /zap2xml/zap2xml.pl
-
-# set volume
-VOLUME /zap2xml
+ADD ./src/zap2xml.pl /zap2xml/
 
 # Fix permissions of user nobody to suit unraid
 RUN usermod -u 99 nobody && \

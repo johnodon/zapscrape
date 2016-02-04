@@ -20,6 +20,6 @@ libjson-xs-perl build-essential cpanminus python
 
 RUN mkdir /zap2xml
 ADD /files /zap2xml/
-RUN chmod +x /zap2xml/
+RUN chmod +x /zap2xml/*
 
 ENTRYPOINT [ "/zap2xml/zap2xml.sh" ]

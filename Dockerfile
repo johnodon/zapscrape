@@ -17,7 +17,7 @@ RUN apt-get update -q
 # Install Dependencies
 RUN apt-get install -qy perl libcompress-raw-zlib-perl libhtml-parser-perl \
 libhttp-cookies-perl liblwpx-paranoidagent-perl libconfig-json-perl \
-libjson-xs-perl build-essential cpanminus python
+libjson-xs-perl build-essential cpanminus
 
 #RUN mkdir /zap2xml
 #RUN mkdir /config

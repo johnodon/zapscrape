@@ -21,7 +21,7 @@ ADD /xmlcombine.py /zap2xml/xmlcombine.py
 #ADD /zap2xml.sh /zap2xml/zap2xml.sh
 
 #RUN chmod +x /zap2xml/zap2xml.sh
-RUN perl /zap2xml/zap2xml.pl -C /config/19380.conf
+#RUN perl /zap2xml/zap2xml.pl -C /config/19380.conf
 
 # Volume mappings
 VOLUME /config

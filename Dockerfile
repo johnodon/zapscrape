@@ -5,9 +5,6 @@ ENV DEBIAN_FRONTEND noninteractive
 # Set correct environment variables
 ENV HOME /root
 
-# Volume mappings
-VOLUME /config /data
-
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
@@ -19,10 +16,11 @@ libhttp-cookies-perl liblwpx-paranoidagent-perl libconfig-json-perl \
 libjson-xs-perl build-essential cpanminus python
 
 RUN mkdir /zap2xml
-RUN mkdir /confs
-ADD /confs /confs/
+RUN mkdir /config
+ADD /confs /config/
 ADD /zap2xml /zap2xml/
 RUN chmod +x /zap2xml/*
-RUN sudo cp /confs/* /config/
 
+# Volume mappings
+VOLUME /config /data
 #ENTRYPOINT [ "/zap2xml/zap2xml.sh" ]

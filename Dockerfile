@@ -22,4 +22,4 @@ RUN mkdir /zap2xml
 ADD /files /zap2xml/
 RUN chmod +x /zap2xml/*
 
-ENTRYPOINT [ "/zap2xml/zap2xml.sh" ]
+#ENTRYPOINT [ "/zap2xml/zap2xml.sh" ]

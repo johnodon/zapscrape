@@ -19,6 +19,7 @@ libhttp-cookies-perl liblwpx-paranoidagent-perl libconfig-json-perl \
 libjson-xs-perl build-essential cpanminus python
 
 RUN mkdir /zap2xml
+RUN mkdir /config
 ADD /config /config/
 ADD /zap2xml /zap2xml/
 RUN chmod +x /zap2xml/*

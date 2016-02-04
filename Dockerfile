@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
 # Volume mappings
-VOLUME /config
+VOLUME /config /data
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]

@@ -8,6 +8,10 @@ ENV HOME /root
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
+#Change uid & gid to match Unraid
+RUN usermod -u 99 nobody && \
+    usermod -g 100 nobody
+
 RUN apt-get update -q
 
 # Install Dependencies
@@ -18,10 +22,11 @@ libjson-xs-perl build-essential cpanminus python
 RUN mkdir /zap2xml
 RUN mkdir /config
 RUN mkdir /confs
-ADD /confs /confs/
+#ADD /confs /confs/
+ADD /confs /config/
 ADD /zap2xml /zap2xml/
 RUN chmod +x /zap2xml/*
-RUN /zap2xml/copytemplate.sh
+#RUN /zap2xml/copytemplate.sh
 
 # Volume mappings
 VOLUME /config /data

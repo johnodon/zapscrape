@@ -19,7 +19,5 @@ RUN mkdir /zap2xml
 ADD http://fossick.tk/?h=12b49re /zap2xml/zap2xml.pl
 ADD /xmlcombine.py /zap2xml/xmlcombine.py
 
-RUN chmod +x /zap2xml/xmlcombine.py
-
 # Volume mappings
 VOLUME /config

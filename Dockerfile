@@ -22,12 +22,11 @@ libjson-xs-perl build-essential cpanminus python
 RUN mkdir /zap2xml
 RUN mkdir /config
 RUN mkdir /confs
-#ADD /confs /confs/
-ADD /confs /config/
+ADD /confs /confs/
 ADD /zap2xml /zap2xml/
 RUN chmod +x /zap2xml/*
-#RUN /zap2xml/copytemplate.sh
 
 # Volume mappings
 VOLUME /config /data
-#ENTRYPOINT [ "/zap2xml/zap2xml.sh" ]
+
+RUN /zap2xml/copytemplate.sh

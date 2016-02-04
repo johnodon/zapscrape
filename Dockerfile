@@ -17,7 +17,8 @@ libjson-xs-perl build-essential cpanminus python
 
 RUN mkdir /zap2xml
 RUN mkdir /config
-#ADD /confs /config/
+RUN mkdir /confs
+ADD /confs /confs/
 ADD /zap2xml /zap2xml/
 RUN chmod +x /zap2xml/*
 

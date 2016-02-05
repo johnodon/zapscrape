@@ -16,7 +16,7 @@ fi
 
 #Add cron job to update guide data
 if [ ! -f "/config/mycron" ]; then
-	cp /files/cron/mycron /config/mycron
+	cp /zap2xml/cron/mycron /config/mycron
 fi
 sleep 10
 crontab -u nobody /config/mycron

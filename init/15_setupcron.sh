@@ -4,3 +4,5 @@ cp /cron/mycron /config/mycron
 chown -R nobody:users /config
 chmod -R 777 /config
 fi
+sleep 60
+crontab -u nobody /config/mycron

@@ -1,1 +1,1 @@
-23 30 * * * /zap2xml/zap2xml.sh
+23 30 * * * /etc/my_init.d/20_updateguide.sh

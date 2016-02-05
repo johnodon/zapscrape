@@ -1,2 +1,2 @@
-30 23 * * * /etc/my_init.d/20_updateguide.sh
-30 11 * * * /etc/my_init.d/20_updateguide.sh
+30 23 * * * /etc/my_init.d/updateguide.sh
+30 11 * * * /etc/my_init.d/updateguide.sh

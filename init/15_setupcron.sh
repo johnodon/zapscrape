@@ -1,6 +1,6 @@
 #!/bin/bash
-if [ ! -e "/config/mycron" ]; then
+if [ ! -f "/config/mycron" ]; then
 cp /cron/mycron /config/mycron
-crontab -u nobody /config/mycron
+chown -R nobody:users /config
+chmod -R 777 /config
 fi
-

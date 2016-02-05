@@ -1,7 +1,7 @@
 #!/bin/bash
-if [ ! -f "/config/templates/zap2xml.conf.template" ]; then
+if [ ! -d "/config/templates/" ]; then
 mkdir -p /config/templates
-cp /confs/zap2xml.conf.template /config/templates/zap2xml.conf.template
 fi
+cp /confs/zap2xml.conf.template /config/templates/zap2xml.conf.template
 chown -R nobody:users /config
 chmod -R 777 /config

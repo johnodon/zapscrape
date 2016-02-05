@@ -19,7 +19,7 @@ fi
 sleep 10
 crontab -u nobody /config/mycron
 
-#Update guide data (only if user created .conf files)
+#Update guide data (only if user created .conf file)
 if [ -f "/config/zap2xml.conf" ]; then
 	/zap2xml/scripts/zap2xml.pl -C /config/zap2xml.conf
 fi

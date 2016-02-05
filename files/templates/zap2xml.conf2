@@ -1,6 +1,0 @@
-user=*zap2it.com_username2*
-pass=*zap2it.com_password*
-cache=/config/cache2
-days=14
-outformat=xmltv
-outfile=/data/guide2.xml

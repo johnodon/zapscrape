@@ -22,7 +22,7 @@ libjson-xs-perl build-essential cpanminus python
 ADD cron/ /cron/
 ADD confs/ /confs/
 ADD zap2xml/ /zap2xml/
-ADD init/ /etc/my_init.d/
+#ADD init/ /etc/my_init.d/
 RUN chmod -v +x /zap2xml/* /etc/my_init.d/*.sh
 
 # Volume mappings

@@ -19,10 +19,11 @@ RUN apt-get install -qy perl libcompress-raw-zlib-perl libhtml-parser-perl \
 libhttp-cookies-perl liblwpx-paranoidagent-perl libconfig-json-perl \
 libjson-xs-perl build-essential cpanminus
 
-ADD confs/ /confs/
-ADD zap2xml/ /zap2xml/
-ADD init/ /etc/my_init.d/
-RUN chmod -v +x /zap2xml/* /etc/my_init.d/*.sh
+ADD files/cron/ /zap2xml/cron/
+ADD files/scripts/ /zap2xml/scripts/
+ADD files/templates/ /zap2xml/templates/
+ADD files/init/ /etc/my_init.d/
+RUN chmod -v +x /zap2xml/scripts/* /etc/my_init.d/*.sh
 
 # Volume mappings
 VOLUME /config /data

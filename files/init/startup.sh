@@ -1,3 +1,4 @@
+#!/bin/sh
 #Copy zap2xml.conf templates to /config/templates
 #if [ ! -d "/config/templates/" ]; then
 mkdir -p /config/templates

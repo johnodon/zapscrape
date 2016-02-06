@@ -1,8 +1,10 @@
 #!/bin/sh
 
-#set proper unRAID permissions on /config
-chown -R nobody:users /config /data
+#Set proper unRAID permissions on /config
+chown -R nobody:users /config
+chown -R nobody:users /data
 chmod -R 777 /config /data
+chmod -R 777 /config /config
 
 #Copy zap2xml.conf templates to /config/templates
 if [ ! -d "/config/templates/" ]; then
@@ -30,5 +32,7 @@ if [ -f "/config/zap2xml.conf1"  -a  -f "/config/zap2xml.conf2" ]; then
 fi
 
 #re-set proper unRAID permissions on /config
-chown -R nobody:users /config /data
+chown -R nobody:users /config
+chown -R nobody:users /data
 chmod -R 777 /config /data
+chmod -R 777 /config /config

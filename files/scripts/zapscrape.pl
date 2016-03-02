@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# zap2xml - zap2it tvschedule scraper - <zap2xml@gmail.com>   
+# zapscrape - zap2it tvschedule scraper   
 
 BEGIN { $SIG{__DIE__} = sub { 
   return if $^S;
